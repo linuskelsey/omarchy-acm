@@ -7,4 +7,17 @@ Omarchy bar widget for [acm](https://github.com/linuskelsey/agent-chat-room): re
 - `Backend.qml` is separate from the UI so a hub card can reuse it: `unread` is the badge number, `stuck` counts rooms with an agent waiting, `turns` counts rooms where agents went quiet.
 - Alerts: acm already raises desktop notifications for these events; the widget only shows state and does not duplicate them.
 
-Install for development by linking this folder into `~/.config/omarchy/plugins/prometheus.acm` and running `omarchy restart shell`.
+## Install
+
+1. Install `acm` itself first (see its [README](https://github.com/linuskelsey/agent-chat-room#install)). The widget calls `~/.local/bin/acm`.
+2. Clone this repository and link it into Omarchy's plugin folder, then restart the shell:
+
+```bash
+git clone https://github.com/linuskelsey/omarchy-acm.git ~/projects/omarchy-acm
+ln -s ~/projects/omarchy-acm ~/.config/omarchy/plugins/prometheus.acm
+omarchy restart shell
+```
+
+3. Add the widget to your bar from the Omarchy bar settings. To show it as an Omahub card instead, enable the acm card in the hub settings.
+
+The widget follows the daemon's `read` events, so it needs an acm version that sends them (any release after the focus-aware reading change).
