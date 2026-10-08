@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "prometheus.acm",
+  "name": "acm",
+  "version": "0.1.0",
+  "author": "prometheus",
+  "license": "MIT",
+  "description": "Bar widget for acm (agent-chat-room): recently active rooms, unread counts and alerts when an agent is waiting for you. Read-only; needs the acm command installed.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "acm",
+    "description": "Rooms, unread counts and agents waiting for you.",
+    "category": "Info",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  },
+  "hubCard": {
+    "entry": "Card.qml",
+    "title": "acm",
+    "contract": 1
+  }
+}
