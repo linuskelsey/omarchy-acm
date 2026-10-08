@@ -84,6 +84,8 @@ Item {
       root.yourTurn = _set(root.yourTurn, room, true)
     } else if (ev.event === "message") {
       root.yourTurn = _set(root.yourTurn, room, null)
+    } else if (ev.event === "read") {
+      if (ev.member !== root.me) return   // someone else catching up changes nothing here
     } else if (ev.event === "warning") {
       root.notice = room + ": " + (ev.text || "")
       noticeClear.restart()
